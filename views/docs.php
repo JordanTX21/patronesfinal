@@ -66,62 +66,92 @@
         <div class="section">
             <h2 class="text-xl font-semibold">Requisitos del Sistema</h2>
             <h3 class="text-lg font-semibold">Requisitos de Hardware</h3>
-            <p>...</p>
+            <p>
+                <ul>
+                    <li>pc con compativilidad con appserve</li>
+                </ul>
+            </p>
             <h3 class="text-lg font-semibold">Requisitos de Software</h3>
-            <p>...</p>
+            <p>
+                <ul>
+                    <li>appserve instalado</li>
+                    <li>PHP</li>
+                    <li>MySQL</li>
+                </ul>
+            </p>
         </div>
 
         <div class="section">
             <h2 class="text-xl font-semibold">Instalación</h2>
             <h3 class="text-lg font-semibold">Descarga del Código Fuente</h3>
-            <pre><code class="text-sm">git clone https://tu-repositorio.git</code></pre>
+            <pre><code class="text-sm">git clone https://github.com/JordanTX21/patronesfinal</code></pre>
             <h3 class="text-lg font-semibold">Configuración del Entorno</h3>
             <p>...</p>
             <h3 class="text-lg font-semibold">Configuración de la Base de Datos</h3>
-            <p>...</p>
+            <p>
+            <pre><code class="language-php">
+                &lt;?php
+                function conectarDB() {
+                    $conexion = new mysqli('localhost', 'usuario', 'contrasenia', 'nombre_de_la_bd');
+                    if ($conexion->connect_error) {
+                        die("Error de conexión: " . $conexion->connect_error);
+                    }
+                    return $conexion;
+                }
+                ?&gt;
+            </code></pre>
+            </p>
             <h3 class="text-lg font-semibold">Despliegue</h3>
-            <p>...</p>
+            <p>Clonar el proyecto en la carpeta /www de appserve</p>
         </div>
 
         <div class="section">
             <h2 class="text-xl font-semibold">Estructura del Proyecto</h2>
-            <p>...</p>
+            <p>
+                <pre>
+                    <code>
+                    - index.php           // Controlador principal
+                    - models/
+                        - Producto.php      // Modelo para productos
+                        - Venta.php         // Modelo para ventas
+                    - views/
+                        - menu.php          // Pantalla de menú
+                        - productos/
+                            - listar.php      // Vista para listar productos
+                            - agregar.php     // Vista para agregar producto
+                            - editar.php      // Vista para editar producto
+                        - ventas/
+                            - reporte.php     // Vista para generar reporte de ventas
+                    - assets/
+                        - css/
+                        - js/
+                            - Chart.min.js    // Biblioteca Chart.js (se puede incluir desde CDN)
+                            - tailwind.js    // Archivo JS de Tailwind (se puede incluir desde CDN también)
+                    - includes/
+                        - database.php      // Archivo para la conexión a la base de datos
+                        - functions.php     // Funciones útiles y lógica de la aplicación
+
+                    </code>
+                </pre>
+            </p>
         </div>
 
         <div class="section">
             <h2 class="text-xl font-semibold">Funcionalidades Principales</h2>
             <h3 class="text-lg font-semibold">Gestión de Productos</h3>
-            <p>...</p>
+            <p>El programa permite listar, agregar, editar y eliminar productos</p>
             <h3 class="text-lg font-semibold">Reporte de Ventas</h3>
-            <p>...</p>
+            <p>Se genera un reporte de las ventas en grafico de barras y pye</p>
         </div>
 
         <div class="section">
             <h2 class="text-xl font-semibold">Patrones de Diseño Utilizados</h2>
             <h3 class="text-lg font-semibold">MVC (Modelo-Vista-Controlador)</h3>
-            <p>...</p>
+            <p>
+            El patrón MVC se utiliza para separar la lógica de negocio (modelo), la presentación (vista) y el control de la aplicación (controlador), lo cual facilita la estructuración y mantenimiento del código. 
+            </p>
             <h3 class="text-lg font-semibold">DAO (Objeto de Acceso a Datos)</h3>
-            <p>...</p>
-        </div>
-
-        <div class="section">
-            <h2 class="text-xl font-semibold">Consideraciones de Seguridad</h2>
-            <p>...</p>
-        </div>
-
-        <div class="section">
-            <h2 class="text-xl font-semibold">Pruebas</h2>
-            <p>...</p>
-        </div>
-
-        <div class="section">
-            <h2 class="text-xl font-semibold">Mantenimiento y Soporte</h2>
-            <p>...</p>
-        </div>
-
-        <div class="section">
-            <h2 class="text-xl font-semibold">Contacto</h2>
-            <p>...</p>
+            <p>El patrón DAO se utiliza para encapsular el acceso a la base de datos, proporcionando una capa de abstracción entre la lógica de la aplicación y los detalles específicos de cómo se accede y manipula la base de datos.</p>
         </div>
 
         <footer class="text-sm text-gray-600 mt-4">
